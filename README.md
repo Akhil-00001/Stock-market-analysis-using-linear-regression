@@ -1,64 +1,57 @@
 # 📈 Stock Market Prediction using Linear Regression
 
 ## 🧠 Overview
-This project aims to design a **lightweight, interpretable, and educational stock market prediction system** using **Linear Regression**.  
-It focuses on providing beginners and researchers with a **transparent baseline model** that demonstrates how statistical learning methods can forecast stock price trends **without relying on complex deep learning architectures**.
+This project presents a **simple yet effective stock market analysis and prediction system** using **Linear Regression and trend-based indicators**. It focuses on making financial data interpretation transparent and beginner-friendly by combining **data cleaning, analysis, and visualization** in one lightweight Python program.
 
 ---
 
-## 🌟 Project Objectives
-- 🔹 Predict short-term stock price trends using historical data.  
-- 🔹 Develop a simple yet effective baseline regression model for financial forecasting.  
-- 🔹 Promote educational understanding of regression-based prediction and model evaluation.  
-- 🔹 Create an extendable framework that can later incorporate advanced models like Polynomial or Neural Networks.
+## 🎯 Project Objectives
+- 🔹 Perform time-series analysis of stock prices using historical data.  
+- 🔹 Calculate essential financial metrics like returns and moving averages.  
+- 🔹 Visualize long-term stock performance through clear trend graphs.  
+- 🔹 Compute correlation between multiple stocks to analyze relationships.  
+- 🔹 Provide a strong baseline for more advanced predictive models.
 
 ---
 
 ## ⚙️ System Architecture
-The project follows a **modular pipeline** consisting of the following components:
+The project workflow consists of the following components:
 
-### 🗂️ Data Collection
-- **Sources:** Yahoo Finance, Kaggle datasets  
-- **Format:** CSV (Open, High, Low, Close, Volume)
+### 🗂️ Data Input
+- **File Source:** CSV file containing stock data.
+- **Expected Columns:** `Date`, `Price`
 
 ### 🧹 Data Preprocessing
-- Handling missing values, duplicates, and outliers  
-- Normalization and feature scaling  
+- Cleans price data by removing unwanted symbols (₹, %, commas).  
+- Converts date strings to valid datetime objects.  
+- Drops invalid or missing entries for accurate analysis.
 
-### 📊 Exploratory Data Analysis (EDA)
-- Correlation heatmaps and trend line plots  
-- Identification of key influencing variables  
+### 📊 Stock Analysis
+- Computes **daily returns**, **50-day**, and **200-day moving averages**.  
+- Displays key metrics such as total return and average volatility.  
+- Uses printed summaries for clear numerical insights.
 
-### 🧮 Model Development
-- **Algorithm:** Linear Regression (`scikit-learn`)  
-- **Data Split:** 70% training, 30% testing  
-- **Libraries:** `pandas`, `numpy`, `matplotlib`, `seaborn`, `scikit-learn`
+### 🎨 Visualization
+- Generates line plots showing stock price trends across time.  
+- Displays multiple stock comparisons on one chart.  
+- Provides grid and legends for better readability.
 
-### 🧽 Model Evaluation
-- **Metrics:** R² Score, Mean Absolute Error (MAE), Root Mean Squared Error (RMSE)  
-- Visual comparison of predicted vs. actual prices  
-
-### 🎨 Visualization Layer
-- Scatter plots and regression lines for interpretability  
-- Demonstrates how regression coefficients influence predictions  
+### 🔗 Correlation Analysis
+- Combines all loaded stock datasets by date.  
+- Calculates **correlation matrix** between returns of different stocks.  
+- Helps identify relationships between company performances.
 
 ---
 
-## 🧹 Project Structure
+## 🧩 Project Structure
 ```
 Stock-Prediction-LinearRegression/
 │
-├── data/                      # Raw and preprocessed datasets
-├── notebooks/                 # Jupyter notebooks for testing & EDA
-├── src/                       # Core Python scripts
-│   ├── preprocess.py
-│   ├── train_model.py
-│   ├── evaluate.py
-│   └── visualize.py
-│
-├── results/                   # Model outputs, graphs, and reports
-├── README.md                  # Project documentation
-└── requirements.txt           # Python dependencies
+├── main.py                   # Main script for data analysis & visualization
+├── stock1.csv                # Example input CSV data file
+├── results/                  # (Optional) To store generated plots or reports
+├── README.md                 # Project documentation
+└── requirements.txt          # Python dependencies
 ```
 
 ---
@@ -67,64 +60,67 @@ Stock-Prediction-LinearRegression/
 
 ### 🔧 Prerequisites
 - Python 3.10+
-- pip (Python package installer)
+- Required libraries:
+  ```bash
+  pip install pandas matplotlib openpyxl
+  ```
 
-### 🧭 Steps
+### 🧭 Steps to Run
 ```bash
 # 1. Clone the repository
-git clone https://github.com/<your-username>/Stock-Prediction-LinearRegression.git
+git clone https://github.com/Akhil-00001/Stock-Prediction-LinearRegression.git
 cd Stock-Prediction-LinearRegression
 
-# 2. Install dependencies
-pip install -r requirements.txt
-
-# 3. Run preprocessing
-python src/preprocess.py
-
-# 4. Train the model
-python src/train_model.py
-
-# 5. Evaluate results
-python src/evaluate.py
+# 2. Run the analysis
+python main.py
 ```
 
-#### 💡 Optional: Run via Jupyter Notebook
-```bash
-jupyter notebook notebooks/Stock_Prediction.ipynb
+### 📁 CSV Format Example
+Your `stock1.csv` should look like this:
 ```
+Date,Price
+2015-01-01,145.20
+2015-01-02,146.75
+2015-01-05,147.10
+...
+```
+
+Ensure your file is in the **same folder** as `main.py`.
 
 ---
 
-## 📊 Results Summary
+## 📊 Example Output
+```
+----- Stock A Analysis -----
+Total Period: 2015-01-01 → 2025-10-01
+Total Return: 82.45%
+Average Annual Volatility: 19.83%
 
-| Metric | Description | Example Value |
-|---------|--------------|---------------|
-| **R² Score** | Measures model fit | 0.87 |
-| **MAE** | Average absolute error | 1.25 |
-| **RMSE** | Root mean square error | 2.10 |
-
-> The model demonstrates good predictive power for trend direction and short-term movement but may underperform during high volatility periods — as expected for a simple regression baseline.
+📊 Correlation Matrix:
+           Stock A
+Stock A    1.000000
+```
+A graph titled *"Stock Prices Over 10 Years"* will also be displayed showing historical price movement.
 
 ---
 
 ## 🧠 Key Insights
-- Linear Regression provides a **clear, interpretable baseline** for market trend prediction.  
-- Data preprocessing and normalization **significantly influence** model performance.  
-- Visualization tools help in understanding **regression behavior** in a financial context.  
-- The project sets a **foundation for future enhancement** using more advanced ML and DL techniques.
+- Demonstrates how **pandas** and **matplotlib** can be used for financial data analysis.  
+- Highlights the importance of **data cleaning** for accurate results.  
+- Provides clear visual understanding of **long-term market trends**.  
+- Serves as a **foundation** for advanced predictive modeling using ML/DL.
 
 ---
 
 ## 📦 Deliverables
-- ✅ Baseline Prediction Model  
-- ✅ Evaluation Metrics Report  
-- ✅ Visualization Graphs  
-- ✅ Comprehensive Documentation & Presentation Slides  
+- ✅ Cleaned and analyzed dataset.  
+- ✅ Printed summary of financial metrics.  
+- ✅ Line plots of price movement.  
+- ✅ Correlation matrix for multi-stock comparison.  
 
 ---
 
 ## 👨‍💻 Team Information
-
 | Member | Role | ID | Email |
 |---------|------|----|--------|
 | **Divyanshi Agarwal** | Team Lead | 240221984 | 240221984@geu.ac.in |
@@ -135,12 +131,12 @@ jupyter notebook notebooks/Stock_Prediction.ipynb
 ---
 
 ## 🏁 Future Scope
-- 📈 Integrate **Polynomial Regression** and **Lasso Regression** for performance comparison.  
-- 🤖 Extend to **Neural Networks (LSTM)** for sequence-based forecasting.  
-- 🌐 Deploy as a **web-based dashboard** using Streamlit or Flask.  
+- 📈 Integrate **Linear Regression Forecasting** to predict future prices.  
+- 🤖 Extend to **Polynomial Regression** or **LSTM-based prediction**.  
+- 🌐 Create an **interactive dashboard** using Streamlit or Flask.
 
 ---
 
 ## 📜 License
-This project is developed as part of the **Software Development Skills - III (SDS-III)** course at **Graphic Era University**.  
+This project is part of **Software Development Skills - III (SDS-III)** course at **Graphic Era University**.  
 For **educational and academic purposes only**.
