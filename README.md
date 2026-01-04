@@ -120,16 +120,6 @@ A graph titled *"Stock Prices Over 10 Years"* will also be displayed showing his
 
 ---
 
-## 👨‍💻 Team Information
-| Member | Role | ID | Email |
-|---------|------|----|--------|
-| **Divyanshi Agarwal** | Team Lead | 240221984 | 240221984@geu.ac.in |
-| **Akhil Kotnala** | Model Development | 24021775 | 24021775@geu.ac.in |
-| **Himanshu Butola** | Data Analysis & Visualization | 240211293 | 240211293@geu.ac.in |
-| **Nehal Mall** | Documentation & Evaluation | 24022108 | 24022108@geu.ac.in |
-
----
-
 ## 🏁 Future Scope
 - 📈 Integrate **Linear Regression Forecasting** to predict future prices.  
 - 🤖 Extend to **Polynomial Regression** or **LSTM-based prediction**.  
